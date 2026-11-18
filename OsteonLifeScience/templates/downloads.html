@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}about-page{% endblock %}
+
+{% block content %}
+
+    <section class="downloads-section py-5 mt-5">
+      <div class="container py-5 mt-4">
+        
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold text-oste">Download Your Certificates</h2>
+          <p class="lead text-muted">Select your certificate and download it instantly.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 rounded-4 p-4 text-center transition-hover">
+              <div class="mb-4 mt-3">
+                <img src="{% static 'img/samplepdf.png' %}" alt="Certificate Icon" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
+              </div>
+              <h4 class="fw-bold text-oste mb-3">Certificate of Excellence</h4>
+              <p class="text-muted mb-4 flex-grow-1">Awarded for outstanding performance in AI & Data Science.</p>
+              <button class="btn btn-oste w-100 py-2 rounded-3" data-bs-toggle="modal" data-bs-target="#emailGateModal">Download</button>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 rounded-4 p-4 text-center transition-hover">
+              <div class="mb-4 mt-3">
+                <img src="{% static 'img/samplepdf.png' %}" alt="Certificate Icon" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
+              </div>
+              <h4 class="fw-bold text-oste mb-3">Project Completion</h4>
+              <p class="text-muted mb-4 flex-grow-1">Recognizing successful completion of the Hackathon project.</p>
+              <button class="btn btn-oste w-100 py-2 rounded-3" data-bs-toggle="modal" data-bs-target="#emailGateModal">Download</button>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 rounded-4 p-4 text-center transition-hover">
+              <div class="mb-4 mt-3">
+                <img src="{% static 'img/samplepdf.png' %}" alt="Certificate Icon" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
+              </div>
+              <h4 class="fw-bold text-oste mb-3">Leadership Award</h4>
+              <p class="text-muted mb-4 flex-grow-1">Honoring leadership skills and project management abilities.</p>
+              <button class="btn btn-oste w-100 py-2 rounded-3" data-bs-toggle="modal" data-bs-target="#emailGateModal">Download</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  
+  <div class="modal fade" id="emailGateModal" tabindex="-1" aria-labelledby="emailGateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4 pt-0">
+          <p class="text-muted mb-4">Please provide your information to instantly download this certificate.</p>
+
+          <h5 class="fw-bold text-oste text-start mb-2" id="emailGateModalLabel">Enter Your Name</h5>          
+          <input type="text" id="nameInput" class="form-control form-control-md mb-3" placeholder="Enter your name">
+          
+          <h5 class="fw-bold text-oste text-start mb-2" id="emailGateModalLabel">Enter Your Number</h5>        
+          <input type="number" id="nnumberInput" class="form-control form-control-md mb-3" placeholder="Enter your Number">
+          
+          <h5 class="fw-bold text-oste text-start mb-2" id="emailGateModalLabel">Enter Your Email</h5>          
+          <input type="email" id="emailInput" class="form-control form-control-md mb-3" placeholder="Enter your email" oninput="validateEmail()">
+          
+          <div class="d-grid gap-2">
+            <button id="downloadBtn" class="btn btn-oste btn-lg disabled" disabled onclick="triggerDownload()">Download</button>
+            <button type="button" class="btn btn-light btn-lg" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_css %}
+  <style>
+    .transition-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .transition-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+  </style>
+{% endblock %}

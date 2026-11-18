@@ -1,0 +1,40 @@
+{% load static %}
+<!-- Navbar -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center {% if nav_active == 'home' %}px-3{% else %}p-3{% endif %}"{% if nav_active == 'home' %} style="max-width: 100%"{% endif %}>
+    <a href="{% url 'home-list' %}" class="logo d-flex align-items-center me-auto">
+      <img class="img-fluid" src="{% if site.logo %}{{ site.logo.url }}{% else %}{% static 'img/OSTEON LOGO/logo.png' %}{% endif %}" alt="{{ site.site_name }}" />
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="{% url 'about-us-list' %}"{% if nav_active == 'about' %} class="active"{% endif %}>About Us</a></li>
+
+        {% if nav_categories %}
+        <li class="dropdown">
+          <a href="{% url 'products-list' %}"{% if nav_active == 'products' %} class="active"{% endif %}><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            {% for category in nav_categories %}
+            <li class="dropdown">
+              <a href="{{ category.get_absolute_url }}"><span>{{ category.name }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                {% for sub_category in category.nav_sub_categories %}
+                <li><a href="{{ sub_category.get_absolute_url }}">{{ sub_category.name }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endif %}
+
+        <li><a href="{% url 'downloads-list' %}"{% if nav_active == 'downloads' %} class="active"{% endif %}>Downloads</a></li>
+
+        <li>
+          <a href="{% url 'home-list' %}#contact"><span class="btn-oste" style="border-radius: 50px">Contact Us</span></a>
+        </li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,639 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}about-page{% endblock %}
+
+{% block extra_css %}
+  <link href="{% static 'css/machinery-scroll.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    <!-- Hero Section -->
+    <section class="about-hero py-5 bg-light">
+      <div class="container text-center" style="padding-top: 100px;">
+        <h1 class="display-5 font-weight-bold">About Osteon Life Science</h1>
+        <p class="lead text-muted">Rebuilding Mobility, Restoring Freedom. Made in India, Made for the World.</p>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-content py-5">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-12 mb-4">
+            <span class="sec-head-oste">Who We Are</span>
+            <h2 class="mb-3 display-6 fw-bold text-oste">About Osteon</h2>
+            <p class="lead">Osteon Life Science Pvt. Ltd. is a next-generation manufacturer of orthopedic implants and
+              instruments, driven by INNOVATION, PRECISION, and a PASSION for improving lives. Based in India, we design
+              and produce world-class orthopedic solutions that meet global quality and regulatory standards.</p>
+          </div>
+
+          <div class="col-md-12 mb-4">
+            <div class="vision-mission-card p-4 bg-white rounded-4 shadow-sm position-relative overflow-hidden">
+              <div class="d-flex align-items-start position-relative z-1">
+                <div
+                  class="icon-wrapper flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle shadow-sm me-4 overflow-hidden">
+                  <img src="{% static 'img/loaderlogo.png' %}" alt="Vision and Mission"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                  <h3 class="mb-3 fw-bold text-oste">Our Vision & Mission</h3>
+                  <p class="mb-0 fs-5 text-muted lh-base">To design, develop, and deliver high-quality orthopedic
+                    implants and instruments that enhance surgical outcomes, promote patient recovery, and set new
+                    standards in healthcare technology.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="leadership-section py-5 bg-light">
+      <div class="container">
+        <div class="text-center">
+          <span class="sec-head-oste">The Team</span>
+          <h2 class="display-5 fw-bold text-oste">Osteon's Leadership</h2>
+        </div>
+        <div class="row justify-content-center gy-5 mt-2">
+          <div class="col-md-6 col-lg-5">
+            <div class="leadership-card h-100 bg-white p-5 rounded-4 position-relative z-1">
+              <div class="d-flex flex-column align-items-center mb-4">
+                <div class="leader-img-wrapper mb-4 position-relative">
+                  <img src="{% static 'img/team/Varun-Sheth.png' %}" alt="Varun Sheth"
+                    class="rounded-circle shadow-sm position-relative z-1">
+                  <div class="img-backdrop position-absolute top-50 start-50 translate-middle rounded-circle"></div>
+                </div>
+                <h4 class="fw-bold mb-1 text-oste">Varun Sheth</h4>
+                <span class="leader-role fw-semibold">Co-founder</span>
+              </div>
+              <ul class="text-start text-muted mb-0 list-unstyled leader-achievements">
+                <!-- <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-arrow-right-short fs-4 me-2 brand-accent-icon"></i>
+                  <span>Ex-Director, Marketing & Operations at Matrix Meditec</span>
+                </li> -->
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-arrow-right-short fs-4 me-2 brand-accent-icon"></i>
+                  <span>Master’s degree in International Marketing from Boston, USA</span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <i class="bi bi-arrow-right-short fs-4 me-2 brand-accent-icon"></i>
+                  <span>12+ years of experience in the orthopedic implant industry</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-5">
+            <div class="leadership-card h-100 bg-white p-5 rounded-4 position-relative z-1">
+              <div class="d-flex flex-column align-items-center mb-4">
+                <div class="leader-img-wrapper mb-4 position-relative">
+                  <img src="{% static 'img/team/Shubhankar-Gattani.png' %}" alt="Shubhankar Gattani"
+                    class="rounded-circle shadow-sm position-relative z-1">
+                  <div class="img-backdrop position-absolute top-50 start-50 translate-middle rounded-circle"></div>
+                </div>
+                <h4 class="fw-bold mb-1 text-oste">Shubhankar Gattani</h4>
+                <span class="leader-role fw-semibold">Co-founder</span>
+              </div>
+              <ul class="text-start text-muted mb-0 list-unstyled leader-achievements">
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-arrow-right-short fs-4 me-2 brand-accent-icon"></i>
+                  <span>Director at PetNext (B2B preform solutions)</span>
+                </li>
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-arrow-right-short fs-4 me-2 brand-accent-icon"></i>
+                  <span>Director at Gaggar Enterprise (FMCG brands - EVOQ, Kingfisher water)</span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <i class="bi bi-arrow-right-short fs-4 me-2 brand-accent-icon"></i>
+                  <span>10+ years of experience running various industries</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="core-values py-5 bg-light">
+      <div class="container py-4">
+        <div class="row">
+
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="position-sticky" style="top: 120px;">
+              <span class="sec-head-oste">Our Principles</span>
+              <h2 class="display-5 fw-bold text-oste mb-4">Our Core Values</h2>
+              <p class="lead text-muted">The foundational beliefs that drive our innovation, shape our culture, and
+                guide our commitment to advancing global healthcare.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="row g-4">
+
+              <div class="col-md-6">
+
+                <div class="value-card-alt p-4 bg-white rounded-4 shadow-sm mb-4">
+                  <div class="icon-box">
+                    <i class="bi bi-lightbulb"></i>
+                  </div>
+                  <h4 class="fw-bold mb-3 text-oste">Innovation</h4>
+                  <p class="text-muted mb-0">We constantly invest in R&D to deliver smarter, safer, and more effective
+                    orthopedic solutions.</p>
+                </div>
+
+                <div class="value-card-alt p-4 bg-white rounded-4 shadow-sm mb-4">
+                  <div class="icon-box">
+                    <i class="bi bi-award"></i>
+                  </div>
+                  <h4 class="fw-bold mb-3 text-oste">Quality</h4>
+                  <p class="text-muted mb-0">We are committed to delivering products that meet or exceed international
+                    quality benchmarks.</p>
+                </div>
+
+                <div class="value-card-alt p-4 bg-white rounded-4 shadow-sm mb-4">
+                  <div class="icon-box">
+                    <i class="bi bi-graph-up-arrow"></i>
+                  </div>
+                  <h4 class="fw-bold mb-3 text-oste">Excellence</h4>
+                  <p class="text-muted mb-0">We strive for excellence in manufacturing, service, and outcomes.</p>
+                </div>
+
+              </div>
+
+              <div class="col-md-6">
+
+                <div class="value-card-alt p-4 bg-white rounded-4 shadow-sm mb-4">
+                  <div class="icon-box">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <h4 class="fw-bold mb-3 text-oste">Integrity</h4>
+                  <p class="text-muted mb-0">We uphold the highest ethical standards in everything we do.</p>
+                </div>
+
+                <div class="value-card-alt p-4 bg-white rounded-4 shadow-sm mb-4">
+                  <div class="icon-box">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <h4 class="fw-bold mb-3 text-oste">Customer Centricity</h4>
+                  <p class="text-muted mb-0">We partner closely with surgeons and healthcare providers to understand and
+                    serve their needs.</p>
+                </div>
+
+                <div class="value-card-alt p-4 bg-white rounded-4 shadow-sm mb-4">
+                  <div class="icon-box">
+                    <i class="bi bi-globe-americas"></i>
+                  </div>
+                  <h4 class="fw-bold mb-3 text-oste">Responsibility</h4>
+                  <p class="text-muted mb-0">We take ownership of our impact — on patients, partners, and the planet.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section py-5 bg-white">
+      <div class="container py-5">
+        <div class="row">
+
+          <div class="col-lg-5 mb-5 mb-lg-0">
+            <div class="position-sticky" style="top: 120px;">
+              <span class="sec-head-oste">How We Work</span>
+              <h2 class="display-5 fw-bold text-oste mb-4">Design & Development</h2>
+              <p class="lead text-muted mb-4">An end-to-end, meticulously controlled workflow ensuring precision from
+                the concept to the final product.</p>
+              <img src="{% static 'img/about-company-2.jpg' %}" alt="Design Process" class="img-fluid rounded-4 shadow-lg w-100"
+                style="object-fit: cover;">
+            </div>
+          </div>
+
+          <div class="col-lg-6 offset-lg-1">
+            <div class="custom-timeline position-relative mt-2">
+
+              <div class="timeline-item position-relative mb-4">
+                <div
+                  class="timeline-marker position-absolute rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm">
+                  1</div>
+                <div class="timeline-content p-4 bg-light rounded-4 shadow-sm ms-5">
+                  <h4 class="fw-bold mb-0 text-oste fs-5">In-house design and development</h4>
+                </div>
+              </div>
+
+              <div class="timeline-item position-relative mb-4">
+                <div
+                  class="timeline-marker position-absolute rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm">
+                  2</div>
+                <div class="timeline-content p-4 bg-light rounded-4 shadow-sm ms-5">
+                  <h4 class="fw-bold mb-0 text-oste fs-5">Compliance with global standards</h4>
+                </div>
+              </div>
+
+
+              <div class="timeline-item position-relative mb-4">
+                <div
+                  class="timeline-marker position-absolute rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm">
+                  3</div>
+                <div class="timeline-content p-4 bg-light rounded-4 shadow-sm ms-5">
+                  <h4 class="fw-bold mb-0 text-oste fs-5">CNC machining and cleanroom packaging</h4>
+                </div>
+              </div>
+
+              <!-- <div class="timeline-item position-relative mb-4">
+                <div
+                  class="timeline-marker position-absolute rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm">
+                  3</div>
+                <div class="timeline-content p-4 bg-light rounded-4 shadow-sm ms-5">
+                  <h4 class="fw-bold mb-0 text-oste fs-5">Biomechanical performance testing</h4>
+                </div>
+              </div> -->
+
+              <div class="timeline-item position-relative mb-4">
+                <div
+                  class="timeline-marker position-absolute rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm">
+                  4</div>
+                <div class="timeline-content p-4 bg-light rounded-4 shadow-sm ms-5">
+                  <h4 class="fw-bold mb-0 text-oste fs-5">Sterile and non-sterile product lines</h4>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OEM & ODM Section -->
+    <section class="oem-odm-section py-5 bg-light position-relative overflow-hidden">
+      <div class="container py-5 position-relative z-1">
+        <div class="row align-items-center">
+
+          <div class="col-lg-6 mb-5 mb-lg-0 px-lg-4">
+
+            <div class="mb-5">
+              <span class="sec-head-oste">Partner With Us</span>
+              <h2 class="display-5 fw-bold text-oste">OEM & ODM Services</h2>
+            </div>
+
+            <div class="oem-image-wrapper position-relative z-1 mt-4">
+              <img src="{% static 'img/about-company-3.jpg' %}" alt="OEM and ODM Services"
+                class="img-fluid rounded-4 shadow-lg position-relative z-1 w-100" style="object-fit: cover;">
+              <!-- <div class="oem-image-backdrop position-absolute rounded-4 w-100 h-100 top-0 start-0 z-0"></div> -->
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 px-lg-5">
+            <div class="oem-features-container">
+
+              <div class="oem-feature-card p-4 bg-white rounded-4 shadow-sm mb-4 d-flex align-items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <i class="bi bi-shield-check brand-accent-icon fs-1"></i>
+                </div>
+                <div class="ms-4">
+                  <h4 class="fw-bold mb-2 text-oste fs-5">Excellent Quality at Volume</h4>
+                  <p class="text-muted mb-0">Our dedicated, senior, and expert quality team collaborates closely with
+                    our customers to ensure the delivery of robust, reliable class III medical devices spanning a
+                    diverse SKU range.</p>
+                </div>
+              </div>
+
+              <div class="oem-feature-card p-4 bg-white rounded-4 shadow-sm mb-4 d-flex align-items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <i class="bi bi-gear-wide-connected brand-accent-icon fs-1"></i>
+                </div>
+                <div class="ms-4">
+                  <h4 class="fw-bold mb-2 text-oste fs-5">Lean, cost-effective Production</h4>
+                  <p class="text-muted mb-0">An experienced senior management team focused on delivering lean, clean,
+                    streamlined production underpinned by proven process.</p>
+                </div>
+              </div>
+
+              <div class="oem-feature-card p-4 bg-white rounded-4 shadow-sm d-flex align-items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <i class="bi bi-lightning-charge brand-accent-icon fs-1"></i>
+                </div>
+                <div class="ms-4">
+                  <h4 class="fw-bold mb-2 text-oste fs-5">The agility to flex to your needs</h4>
+                  <p class="text-muted mb-0">A vibrant, energetic, agile team, flexible enough to quickly adapt to your
+                    needs, and the needs of the market.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Machinery Section (scroll-driven showcase) -->
+    <!-- To add a real photo for a machine, add data-image="static/img/machinery/your-photo.jpg" to its .mx-item button. -->
+    <section class="mx-section" data-mx-scroll>
+      <div class="container">
+        <div class="mx-heading">
+          <span class="sec-head-oste">Infrastructure</span>
+          <h2 class="display-5 fw-bold text-oste">World-Class Machineries</h2>
+          <p class="lead text-muted mb-0">Capitalizing on Shifting Global Supply Chains</p>
+        </div>
+
+        <div class="mx-track">
+          <div class="mx-stage">
+
+            <div class="mx-list-viewport">
+              <ul class="mx-list">
+              <li>
+                <button type="button" class="mx-item" data-title="CNC VMC 3 Axis – HAAS VF2 – 2 Nos" data-tag="Machining" data-desc="High-rigidity vertical machining centres for plates, blocks and fixtured components.">
+                  <span class="mx-item-icon"><i class="bi bi-gear-fill" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">CNC VMC 3 Axis – HAAS VF2 – 2 Nos</span>
+                    <span class="mx-item-desc">High-rigidity vertical machining centres for plates, blocks and fixtured components.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="CNC VMC 5 Axis – HAAS VF2 – 2 Nos" data-tag="Machining" data-desc="Simultaneous 5-axis machining for complex anatomical contours in a single setup.">
+                  <span class="mx-item-icon"><i class="bi bi-bounding-box" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">CNC VMC 5 Axis – HAAS VF2 – 2 Nos</span>
+                    <span class="mx-item-desc">Simultaneous 5-axis machining for complex anatomical contours in a single setup.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Laser Cutting Machine 3 KW" data-tag="Cutting" data-desc="High-power laser profiling for clean, accurate blanks with minimal rework.">
+                  <span class="mx-item-icon"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Laser Cutting Machine 3 KW</span>
+                    <span class="mx-item-desc">High-power laser profiling for clean, accurate blanks with minimal rework.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Gun Drilling Machine – 3mm to 12mm" data-tag="Machining" data-desc="Deep-hole drilling with tight straightness for cannulated screws, nails and rods.">
+                  <span class="mx-item-icon"><i class="bi bi-record-circle" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Gun Drilling Machine – 3mm to 12mm</span>
+                    <span class="mx-item-desc">Deep-hole drilling with tight straightness for cannulated screws, nails and rods.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Bandsaw Machine – Max 200mm" data-tag="Cutting" data-desc="Precise bar and billet cutting to length ahead of machining.">
+                  <span class="mx-item-icon"><i class="bi bi-scissors" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Bandsaw Machine – Max 200mm</span>
+                    <span class="mx-item-desc">Precise bar and billet cutting to length ahead of machining.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="CNC Millturn 5 Axis – DMG Mori NTX1000" data-tag="Machining" data-desc="Combined milling and turning for complete, done-in-one machining of complex implants.">
+                  <span class="mx-item-icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">CNC Millturn 5 Axis – DMG Mori NTX1000</span>
+                    <span class="mx-item-desc">Combined milling and turning for complete, done-in-one machining of complex implants.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="CNC Turning Machine – DMG Ecoline CTX 300" data-tag="Machining" data-desc="Dependable turning for screws, pins and other cylindrical components.">
+                  <span class="mx-item-icon"><i class="bi bi-arrow-clockwise" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">CNC Turning Machine – DMG Ecoline CTX 300</span>
+                    <span class="mx-item-desc">Dependable turning for screws, pins and other cylindrical components.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Swiss Sliding Head Machine – Hanwha, 2 Nos" data-tag="Machining" data-desc="Swiss-type machining for slender, high-accuracy parts and fine features.">
+                  <span class="mx-item-icon"><i class="bi bi-sliders" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Swiss Sliding Head Machine – Hanwha, 2 Nos</span>
+                    <span class="mx-item-desc">Swiss-type machining for slender, high-accuracy parts and fine features.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Banding Press 60 Ton" data-tag="Forming" data-desc="Heavy-duty 60-ton press for repeatable forming operations.">
+                  <span class="mx-item-icon"><i class="bi bi-hammer" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Banding Press 60 Ton</span>
+                    <span class="mx-item-desc">Heavy-duty 60-ton press for repeatable forming operations.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Buffing Machine" data-tag="Finishing" data-desc="Surface finishing for smooth, consistent edges and faces.">
+                  <span class="mx-item-icon"><i class="bi bi-stars" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Buffing Machine</span>
+                    <span class="mx-item-desc">Surface finishing for smooth, consistent edges and faces.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="5 Stage Auto Ultrasonic Cleaning Machine" data-tag="Cleaning" data-desc="Automated multi-stage cleaning to remove residues before finishing and packaging.">
+                  <span class="mx-item-icon"><i class="bi bi-droplet-half" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">5 Stage Auto Ultrasonic Cleaning Machine</span>
+                    <span class="mx-item-desc">Automated multi-stage cleaning to remove residues before finishing and packaging.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Sand Blasting Machine" data-tag="Finishing" data-desc="Controlled blasting for a uniform, matte surface texture.">
+                  <span class="mx-item-icon"><i class="bi bi-wind" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Sand Blasting Machine</span>
+                    <span class="mx-item-desc">Controlled blasting for a uniform, matte surface texture.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Electro Polishing Machine" data-tag="Finishing" data-desc="Smooth, clean surfaces with improved corrosion resistance.">
+                  <span class="mx-item-icon"><i class="bi bi-brightness-high" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Electro Polishing Machine</span>
+                    <span class="mx-item-desc">Smooth, clean surfaces with improved corrosion resistance.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Anodising Machine" data-tag="Finishing" data-desc="Biocompatible oxide coating and colour coding for titanium implants.">
+                  <span class="mx-item-icon"><i class="bi bi-palette" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Anodising Machine</span>
+                    <span class="mx-item-desc">Biocompatible oxide coating and colour coding for titanium implants.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="mx-item" data-title="Laser Marking Machine" data-tag="Marking" data-desc="Permanent, traceable part marking for product identification.">
+                  <span class="mx-item-icon"><i class="bi bi-upc-scan" aria-hidden="true"></i></span>
+                  <span class="mx-item-body">
+                    <span class="mx-item-title">Laser Marking Machine</span>
+                    <span class="mx-item-desc">Permanent, traceable part marking for product identification.</span>
+                  </span>
+                  <i class="bi bi-chevron-right mx-item-chevron" aria-hidden="true"></i>
+                </button>
+              </li>
+              </ul>
+            </div>
+
+            <div class="mx-panel" aria-live="polite">
+              <div class="mx-panel-head">
+                <div class="mx-panel-meta">
+                  <span class="mx-tag"></span>
+                  <span class="mx-counter"></span>
+                </div>
+                <h3 class="mx-panel-title"></h3>
+                <p class="mx-panel-desc"></p>
+              </div>
+              <div class="mx-photo-frame"></div>
+              <div class="mx-progress" aria-hidden="true"><span class="mx-progress-bar"></span></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="faqs-section py-5 bg-white position-relative" style="display: none">
+      <div class="container py-5">
+        
+        <div class="text-center mb-5">
+          <span class="sec-head-oste">Got Questions?</span>
+          <h2 class="display-5 fw-bold text-oste">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="accordion custom-accordion" id="faqAccordion">
+              
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    What quality certifications do your products hold?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    All our products undergo strict quality control and comply with international health and safety regulations, ensuring they meet the highest medical and pharmaceutical standards.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How does Osteon Life Science ensure the efficacy of its products?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    We invest heavily in ongoing research and development, rigorous clinical testing, and sourcing premium raw materials so that every product delivers measurable, reliable results.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Do you supply to both healthcare facilities and individual consumers?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    Yes, we proudly partner with hospitals, clinics, and pharmacies for bulk supply, while also providing select product lines directly to consumers for continued care.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Are your implants supplied sterile or non-sterile?
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    We offer both sterile and non-sterile product lines to meet the specific requirements of our clients. Our sterile products are processed and packaged in state-of-the-art cleanroom facilities to ensure maximum patient safety.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Do you export products internationally?
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    Yes. While we are proudly "Made in India," our products are "Made for the World." We have a robust global distribution network and regularly export our orthopedic implants and instruments to international markets.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingSix">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    What is the typical lead time for custom OEM/ODM manufacturing?
+                  </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    Lead times vary depending on the complexity and volume of the order. However, our lean manufacturing processes and agile team allow us to adapt quickly and offer highly competitive timelines without compromising on quality.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="headingSeven">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    Are your manufacturing facilities ISO certified?
+                  </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">
+                    Absolutely. Our world-class manufacturing infrastructure strictly adheres to international regulatory guidelines for medical device manufacturing, ensuring consistent quality and compliance.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  {% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/machinery-scroll.js' %}"></script>
+{% endblock %}

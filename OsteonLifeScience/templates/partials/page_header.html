@@ -1,0 +1,19 @@
+<section class="about-hero py-5 bg-light">
+  <div class="container text-center" style="padding-top: 100px;">
+    {% if breadcrumbs %}
+    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+      <ol class="breadcrumb mb-3 small">
+        {% for label, url in breadcrumbs %}
+          {% if url and not forloop.last %}
+          <li class="breadcrumb-item"><a href="{{ url }}" class="text-decoration-none">{{ label }}</a></li>
+          {% else %}
+          <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+    {% endif %}
+    <h1 class="display-5 font-weight-bold">{{ heading }}</h1>
+    {% if intro %}<p class="lead text-muted mx-auto" style="max-width: 820px;">{{ intro }}</p>{% endif %}
+  </div>
+</section>

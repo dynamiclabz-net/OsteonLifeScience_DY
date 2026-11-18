@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load seo_tags static %}
+
+{% block body_class %}about-page{% endblock %}
+
+{% block structured_data %}{% breadcrumb_ld breadcrumbs %}{% endblock %}
+
+{% block content %}
+  {% include 'partials/page_header.html' with heading=sub_category.page_h1 intro=sub_category.short_description|default:sub_category.meta_description %}
+
+  <section class="py-5 light-background">
+    <div class="container">
+      {% if sibling_sub_categories %}
+      <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+        <a href="{{ category.get_absolute_url }}" class="btn btn-sm btn-oste-outline">All {{ category.name }}</a>
+        {% for sibling in sibling_sub_categories %}
+        <a href="{{ sibling.get_absolute_url }}" class="btn btn-sm {% if sibling.id == sub_category.id %}btn-oste{% else %}btn-oste-outline{% endif %}">{{ sibling.name }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if sub_category.description and sub_category.description != sub_category.short_description %}
+      <p class="lead text-center mx-auto mb-5" style="max-width: 900px;">{{ sub_category.description }}</p>
+      {% endif %}
+
+      <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-4">
+        {% for product in products %}
+          {% include 'partials/product_tile.html' %}
+        {% empty %}
+        <p class="text-center text-muted py-5 w-100">Products in this section will be listed here soon.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

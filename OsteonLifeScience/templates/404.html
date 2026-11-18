@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body_class %}about-page{% endblock %}
+
+{% block content %}
+  <section class="about-hero py-5 bg-light">
+    <div class="container text-center" style="padding: 140px 0 80px;">
+      <h1 class="display-5 fw-bold">Page not found</h1>
+      <p class="lead text-muted mb-4">The page you are looking for does not exist or is no longer available.</p>
+      <a href="{% url 'products-list' %}" class="btn btn-oste me-2">Browse products</a>
+      <a href="{% url 'home-list' %}" class="btn btn-oste-outline">Back to home</a>
+    </div>
+  </section>
+{% endblock %}

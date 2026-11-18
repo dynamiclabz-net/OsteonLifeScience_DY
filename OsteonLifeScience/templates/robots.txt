@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /user-api/
+Disallow: /catalog-api/
+Disallow: /site-content-api/
+
+Sitemap: {{ sitemap_url }}

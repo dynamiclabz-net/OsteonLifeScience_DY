@@ -1,0 +1,82 @@
+{% load static %}
+<footer id="footer" class="footer position-relative light-background">
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="{% url 'home-list' %}" class="logo d-flex align-items-center mb-4">
+          <img src="{% if site.logo %}{{ site.logo.url }}{% else %}{% static 'img/OSTEON LOGO/logo.png' %}{% endif %}" alt="{{ site.site_name }}" style="max-height: 65px;" />
+        </a>
+        <div class="footer-contact">
+          {% for line in site.address_lines %}
+          <p>{{ line }}</p>
+          {% endfor %}
+          <p class="mt-3">
+            <strong>Email:</strong> <a href="mailto:{{ site.email }}" class="text-dark text-decoration-none">{{ site.email }}</a>
+          </p>
+          {% if site.phone %}
+          <p>
+            <strong>Phone:</strong> <a href="tel:{{ site.phone }}" class="text-dark text-decoration-none">{{ site.phone }}</a>
+          </p>
+          {% endif %}
+          <p>
+            <strong>Website:</strong> <a href="{{ site.website }}" class="text-dark text-decoration-none">{{ site.website_label }}</a>
+          </p>
+        </div>
+        <div class="social-links d-flex mt-4">
+          {% if site.twitter_url %}<a href="{{ site.twitter_url }}" target="_blank" rel="noopener" aria-label="X"><i class="bi bi-twitter-x"></i></a>{% endif %}
+          {% if site.facebook_url %}<a href="{{ site.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>{% endif %}
+          {% if site.instagram_url %}<a href="{{ site.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>{% endif %}
+          {% if site.linkedin_url %}<a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>{% endif %}
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="{% url 'home-list' %}">Home</a></li>
+          <li><a href="{% url 'about-us-list' %}">About us</a></li>
+          <li><a href="{% url 'products-list' %}">Products</a></li>
+          <li><a href="{% url 'downloads-list' %}">Downloads</a></li>
+          <li><a href="{% url 'home-list' %}#contact">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Our Products</h4>
+        <ul>
+          {% for category in nav_categories %}
+          <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+          {% empty %}
+          <li><a href="{% url 'products-list' %}">All products</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-lg-4 col-md-12 footer-newsletter">
+        <h4>{{ site.newsletter_heading }}</h4>
+        <p>{{ site.newsletter_text }}</p>
+        <form action="forms/newsletter.php" method="post" class="php-email-form">
+          <div class="newsletter-form">
+            <input type="email" name="email" placeholder="Enter Email" /><input type="submit" value="Subscribe" />
+          </div>
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">
+            Your subscription request has been sent. Thank you!
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container copyright text-center mt-4">
+    <p>
+      © <span>Copyright</span>
+      <strong class="px-1 sitename">{{ site.site_name }}</strong><span>All Rights Reserved</span>
+    </p>
+    <p>
+      Designed by
+      <a href="{{ site.designed_by_url }}"><b>{{ site.designed_by_text }}</b></a>
+    </p>
+  </div>
+</footer>

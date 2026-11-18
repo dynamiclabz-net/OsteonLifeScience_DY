@@ -1,0 +1,9 @@
+{% if banner.eyebrow %}<span class="hx-eyebrow hx-anim" style="--i:0">{{ banner.eyebrow }}</span>{% endif %}
+<h2 class="hx-title hx-anim" style="--i:1">{{ banner.title_line_1 }}{% if banner.title_accent %}<br /><span class="hx-accent">{{ banner.title_accent }}</span>{% endif %}</h2>
+{% if banner.description %}<p class="hx-lead hx-anim" style="--i:2">{{ banner.description }}</p>{% endif %}
+{% if banner.primary_button_text or banner.secondary_button_text %}
+<div class="hx-actions hx-anim" style="--i:3">
+  {% if banner.primary_button_text and banner.primary_button_url %}<a href="{{ banner.primary_button_url }}" class="hx-btn hx-btn-primary">{{ banner.primary_button_text }} <i class="bi bi-arrow-right"></i></a>{% endif %}
+  {% if banner.secondary_button_text and banner.secondary_button_url %}<a href="{{ banner.secondary_button_url }}" class="hx-btn hx-btn-ghost">{{ banner.secondary_button_text }}</a>{% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,13 @@
+{% load static %}
+<div class="col">
+  <div class="product-item">
+    <figure>
+      <a href="{{ product.get_absolute_url }}">
+        {% with image=product.primary_image %}
+        <img src="{% if image %}{{ image.image.url }}{% else %}{% static 'img/no-image.svg' %}{% endif %}" class="tab-image" alt="{% if image %}{{ image.alt }}{% else %}{{ product.name }}{% endif %}" loading="lazy" />
+        {% endwith %}
+      </a>
+    </figure>
+    <h3><a href="{{ product.get_absolute_url }}" class="text-reset text-decoration-none">{{ product.name }}</a></h3>
+  </div>
+</div>

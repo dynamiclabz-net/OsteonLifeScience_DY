@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}index-page{% endblock %}
+
+{% block extra_css %}
+  <link href="{% static 'css/hero-modern.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    <!-- Hero Section -->
+    {% if banners %}
+    <section id="hero" class="hero section hx-hero" aria-label="Featured highlights">
+      <div class="swiper hero-carousel hx-carousel">
+        <div class="swiper-wrapper">
+          {% for banner in banners %}
+            {% if banner.media_type == 'video' and banner.background_video %}
+            <div class="swiper-slide hx-slide hx-slide-video">
+              <video class="hx-video" autoplay muted loop playsinline aria-hidden="true"{% if banner.background_image %} poster="{{ banner.background_image.url }}"{% endif %}>
+                <source src="{{ banner.background_video.url }}" type="video/mp4" />
+              </video>
+              <div class="hx-scrim hx-scrim-dark"></div>
+              <div class="hx-inner">
+                <div class="hx-copy hx-on-dark">
+                  {% include 'partials/banner_copy.html' %}
+                </div>
+              </div>
+            </div>
+            {% elif banner.layout == 'glass' %}
+            <div class="swiper-slide hx-slide">
+              {% if banner.background_image %}<div class="hx-bg hx-bg-left" style="background-image:url('{{ banner.background_image.url }}');"></div>{% endif %}
+              <div class="hx-inner hx-inner-end">
+                <div class="hx-copy hx-copy-glass">
+                  {% include 'partials/banner_copy.html' %}
+                </div>
+              </div>
+            </div>
+            {% else %}
+            <div class="swiper-slide hx-slide">
+              {% if banner.background_image %}<div class="hx-bg" style="background-image:url('{{ banner.background_image.url }}');"></div>{% endif %}
+              <div class="hx-scrim"></div>
+              <div class="hx-inner">
+                <div class="hx-copy">
+                  {% include 'partials/banner_copy.html' %}
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="swiper-button-next" aria-label="Next slide"></div>
+        <div class="swiper-button-prev" aria-label="Previous slide"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- About Us Section -->
+    {% if home.show_about %}
+    <section class="py-5">
+      <div class="container">
+        <div class="row gx-4 align-items-center justify-content-between">
+          <div class="col-md-5 order-2 order-md-1">
+            <div class="mt-5 mt-md-0">
+              <span class="sec-head-oste">{{ home.about_tag }}</span>
+              <h2 class="display-5 fw-bold text-oste">{{ home.about_heading }}</h2>
+              {% if home.about_paragraph_1 %}<p class="lead">{{ home.about_paragraph_1 }}</p>{% endif %}
+              {% if home.about_paragraph_2 %}<p class="lead">{{ home.about_paragraph_2 }}</p>{% endif %}
+              {% if about_highlight_columns %}
+              <div class="row gx-5 py-2">
+                {% for column in about_highlight_columns %}
+                <div class="col-sm-6 mb-2">
+                  {% for highlight in column %}
+                  <p class="fw-bold mb-2">
+                    <i class="fa fa-check text-oste me-3"></i>{{ highlight.text }}
+                  </p>
+                  {% endfor %}
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          {% if home.about_image %}
+          <div class="col-md-6 offset-md-1 order-1 order-md-2">
+            <div class="row gx-2 gx-lg-3">
+              <div class="mb-2">
+                <img class="img-fluid rounded-3" src="{{ home.about_image.url }}" alt="{{ home.about_heading }}" />
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Our Products Section -->
+    {% if home.show_products and product_tabs %}
+    <section class="py-5 light-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bootstrap-tabs product-tabs">
+              <div class="row border-bottom my-5">
+                <div class="col-12 col-md-4">
+                  <h2 class="display-5 fw-bold text-oste">{{ home.products_heading }}</h2>
+                </div>
+                <div class="col-12 col-md-8 text-md-end text-start">
+                  <nav>
+                    <div class="nav nav-tabs justify-content-md-end border-0" id="nav-tab" role="tablist">
+                      {% for tab in product_tabs %}
+                      <a href="#" class="nav-link text-uppercase fs-6{% if forloop.first %} active{% endif %}" id="nav-cat-{{ tab.category.id }}-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-cat-{{ tab.category.id }}" role="tab">{{ tab.category.name }}</a>
+                      {% endfor %}
+                    </div>
+                  </nav>
+                </div>
+              </div>
+
+              <div class="tab-content" id="nav-tabContent">
+                {% for tab in product_tabs %}
+                <div class="tab-pane fade{% if forloop.first %} show active{% endif %}" id="nav-cat-{{ tab.category.id }}" role="tabpanel" aria-labelledby="nav-cat-{{ tab.category.id }}-tab">
+                  <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-4">
+                    {% for product in tab.products %}
+                      {% include 'partials/product_tile.html' %}
+                    {% endfor %}
+                  </div>
+                  <div class="text-center mt-4">
+                    <a href="{{ tab.category.get_absolute_url }}" class="btn btn-oste-outline">View all {{ tab.category.name }} products</a>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Why Choose Us Section -->
+    {% if home.show_why_choose_us %}
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+          {% if home.why_image %}
+          <div class="col-lg-5 about-images" data-aos="fade-up" data-aos-delay="200">
+            <img src="{{ home.why_image.url }}" class="img-fluid" alt="{{ home.why_heading }}" />
+          </div>
+          {% endif %}
+
+          <div class="{% if home.why_image %}col-lg-7{% else %}col-lg-12{% endif %} content" data-aos="fade-up" data-aos-delay="100">
+            <p class="sec-head-oste">{{ home.why_tag }}</p>
+            <h2 class="display-5 fw-bold text-oste">{{ home.why_heading }}</h2>
+            {% if home.why_subheading %}<h3 class="mb-3">{{ home.why_subheading }}</h3>{% endif %}
+            {% if home.why_description %}<p class="fst-italic text-muted mb-4">{{ home.why_description }}</p>{% endif %}
+            {% if why_points %}
+            <ul class="text-muted lh-lg">
+              {% for point in why_points %}
+              <li class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill mt-1 me-2"></i>
+                <span><strong>{{ point.title }}:</strong> {{ point.description }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            {% if home.why_button_text and home.why_button_url %}
+            <a href="{{ home.why_button_url }}" class="read-more"><span>{{ home.why_button_text }}</span><i class="bi bi-arrow-right"></i></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Features Details Section -->
+    {% if home.show_feature_blocks and feature_blocks %}
+    <section id="features-details" class="features-details section">
+      <div class="container">
+        {% for block in feature_blocks %}
+        <div class="row gy-4 justify-content-between features-item {% if forloop.first %}mb-5{% else %}mt-5{% endif %}">
+          {% if block.image and block.image_position == 'left' %}
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="{{ block.image.url }}" class="img-fluid rounded-4 shadow-sm" alt="{{ block.image_alt|default:block.heading }}" />
+          </div>
+          {% endif %}
+
+          <div class="{% if block.image %}col-lg-5{% else %}col-lg-12{% endif %} d-flex align-items-center{% if block.image and block.image_position == 'right' %} order-2 order-lg-1{% endif %}" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              {% if block.tag %}<span class="sec-head-oste mb-2 d-block">{{ block.tag }}</span>{% endif %}
+              <h3 class="fw-bold text-oste mb-3">{{ block.heading }}</h3>
+              {% if block.paragraph_1 %}<p class="text-muted lh-lg">{{ block.paragraph_1 }}</p>{% endif %}
+              {% if block.paragraph_2 %}<p class="text-muted lh-lg mb-4">{{ block.paragraph_2 }}</p>{% endif %}
+              {% if block.active_points %}
+              <ul class="text-muted lh-lg list-unstyled">
+                {% for point in block.active_points %}
+                <li class="d-flex align-items-start">
+                  <i class="bi {{ point.icon_class }} text-oste fs-5 me-3 mt-1"></i>
+                  <span><strong>{{ point.title }}:</strong> {{ point.description }}</span>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              {% if block.button_text and block.button_url %}
+              <a href="{{ block.button_url }}" class="btn btn-oste mt-2">{{ block.button_text }}</a>
+              {% endif %}
+            </div>
+          </div>
+
+          {% if block.image and block.image_position == 'right' %}
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
+            <img src="{{ block.image.url }}" class="img-fluid rounded-4 shadow-sm" alt="{{ block.image_alt|default:block.heading }}" />
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- FAQs Section -->
+    {% if home.show_faqs and faqs %}
+    <section class="faqs-section py-5 bg-white position-relative">
+      <div class="container py-5">
+
+        <div class="text-center mb-5">
+          <span class="sec-head-oste">{{ home.faq_tag }}</span>
+          <h2 class="display-5 fw-bold text-oste">{{ home.faq_heading }}</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="accordion custom-accordion" id="faqAccordion">
+              {% for faq in faqs %}
+              <div class="accordion-item border-0 mb-4 shadow-sm rounded-4 overflow-hidden">
+                <h2 class="accordion-header" id="faqHeading{{ faq.id }}">
+                  <button class="accordion-button collapsed fw-bold px-4 py-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse{{ faq.id }}" aria-expanded="false" aria-controls="faqCollapse{{ faq.id }}">
+                    {{ faq.question }}
+                  </button>
+                </h2>
+                <div id="faqCollapse{{ faq.id }}" class="accordion-collapse collapse" aria-labelledby="faqHeading{{ faq.id }}"
+                  data-bs-parent="#faqAccordion">
+                  <div class="accordion-body px-4 pb-4 pt-0 text-muted lh-lg">{{ faq.answer }}</div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Contact Section -->
+    {% if home.show_contact %}
+    <section id="contact" class="contact section light-background">
+      <div class="text-center mb-5">
+        <span class="sec-head-oste">{{ site.contact_tag }}</span>
+        <h2 class="display-5 fw-bold text-oste">{{ site.contact_heading }}</h2>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center h-100" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p class="text-center mt-2">
+                <strong>{{ site.company_name }}</strong><br>
+                {% for line in site.address_lines %}{{ line }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
+                {% if site.phone %}<br>Phone: <a href="tel:{{ site.phone }}" class="text-muted text-decoration-none">{{ site.phone }}</a>{% endif %}
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center h-100" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-globe"></i>
+              <h3>Website</h3>
+              <p><a href="{{ site.website }}" class="text-muted text-decoration-none">{{ site.website_label }}</a></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center h-100" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p><a href="mailto:{{ site.email }}" class="text-muted text-decoration-none">{{ site.email }}</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gy-4 mt-1">
+          {% if site.map_embed_url %}
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <iframe
+              src="{{ site.map_embed_url }}"
+              title="Map"
+              frameborder="0"
+              style="border:0; width: 100%; height: 100%; min-height: 400px; border-radius: 16px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          {% endif %}
+
+          <div class="{% if site.map_embed_url %}col-lg-6{% else %}col-lg-12{% endif %}">
+            <form action="forms/contact.php" method="post" class="php-email-form rounded-4 h-100" data-aos="fade-up" data-aos-delay="400">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="" />
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="" />
+                </div>
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="" />
+                </div>
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                  <button type="submit" class="btn btn-oste mt-2">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+{% endblock %}
